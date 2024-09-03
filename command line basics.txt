@@ -1,0 +1,12 @@
+1. dir / ls : List Items in a directory
+
+2. cd : Change directory:
+    i. cd Videos = Change Directory to ./Videos
+    ii. cd .. = Change Directory Back
+    iii. cd [TAB Button] = Auto Change/Navigate Directory Items
+
+3. cls / clear : Clearing The Screen
+
+4. pwd : Print Working/Current Directory
+
+5. mkdir : Make Directory
