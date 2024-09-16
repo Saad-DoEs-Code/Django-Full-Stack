@@ -3,4 +3,6 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-    return HttpResponse(f"<h1>Hello, Saad ur Rehman</h1>")
+    my_dict = {"insert_me": "Hi! I am from VIEWS.PY!!!"}
+    # Context means the data being transferred
+    return render(request,"first_app/index.html", context=my_dict)
