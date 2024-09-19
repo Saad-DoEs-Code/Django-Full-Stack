@@ -1,17 +1,44 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MY FIRST TEMPLATE</title>
-    <link rel="stylesheet" href={% static 'css/style.css' %}>
-    
-  </head>
-  <body>
-    <h1>Hello To My Django Template</h1>
-    {{ insert_me }} <br />
-    <img src="{% static "images/IMG_3854.JPG" %}" alt="No image" height= "400px"
-    width="600px" >
-  </body>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Reetrieving Data</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+  <h1>Welcome To My Website</h1>
+
+  <h2>Access Dates</h2>
+
+  <div class="data">
+    {% if access_dates %}
+  <table>
+    <thead>
+      <th>Site Name</th>
+      <th>Access Date</th>
+    </thead>
+    <tbody>
+      {% for access_date in access_dates %}
+      <tr>
+        <td>{{ access_date.name }}</td>
+        <td>{{ access_date.date }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p>No access dates are available.</p>
+  {% endif %}
+  </div>
+
+  <script src="" async defer></script>
+</body>
+
 </html>

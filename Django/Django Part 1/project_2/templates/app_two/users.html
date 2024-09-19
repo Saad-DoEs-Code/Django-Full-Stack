@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+
+<body>
+    <h1>Here are all the users</h1>
+    {% if users %}
+    <ol>
+        {% for user in users %}
+        <li><h2>User Info</h2></li>
+        <ul>
+            <li><h3>First Name:</h3> {{user.first_name}}</li>
+            <li><h3>Last Name:</h3> {{user.last_name}}</li>
+            <li><h3>Email:</h3> {{user.email_address}}</li>
+        </ul>
+        {% endfor %}
+    </ol>
+    {% else %}
+    <p>No users</p>
+    {% endif %}
+</body>
+
+</html>
