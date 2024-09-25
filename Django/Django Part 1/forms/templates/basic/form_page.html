@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Page</title>
+</head>
+
+<body>
+    <h1>Input data</h1>
+    <div class="container">
+        <form method="POST">
+            <!-- To Display from in Top-Bottom view, we use .as_p (as paragraph) -->
+            {{form.as_p}}
+            {% csrf_token %}
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+
+</html>
