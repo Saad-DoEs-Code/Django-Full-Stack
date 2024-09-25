@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from first_app.models import Topic, AccessDate, WebPage
 
+
 # Create your views here.
 def index(request):
     web_list = AccessDate.objects.order_by("date")
