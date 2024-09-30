@@ -1,5 +1,17 @@
 from django import forms
+from forms_basic.models import User
 from django.core import validators
+
+
+
+class NewUserForm(forms.ModelForm):
+
+    class Meta:
+        model = User
+        fields = "__all__"
+
+
+
 class User(forms.Form):
 
     name = forms.CharField(label="Name", max_length=100)
@@ -42,3 +54,4 @@ class User(forms.Form):
             raise forms.ValidationError("Name can't start with S!")
         
         return all_clean_data
+
