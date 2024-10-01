@@ -1,0 +1,16 @@
+<!-- Relative URL Templates File  -->
+<DOCTYPE html>
+
+    {% extends "app_1/base.html" %}
+        {% block body_block %}
+        <div class="container">
+            <h2 class="display-2">Relative URLs Templates</h2>
+
+
+            <a href="{% url 'app_1:other' %}">Go to Other Page</a> <br>
+            <!-- Calling name="index" from URLs -->
+            <a href="{% url 'index' %}">Go to Index Page</a> <br>
+            <a href="{% url 'admin:index' %}">Go to Admin Page</a> <br>
+        </div>
+
+        {% endblock %}
