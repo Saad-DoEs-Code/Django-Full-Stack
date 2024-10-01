@@ -1,8 +1,17 @@
 <!-- Main Page -->
 <!DOCTYPE html>
 {% extends 'app_1/base.html' %}
+
+{% load custom_filters %}
+
 {% block body_block %}
   <h1 class="display-1">Main Page</h1>
   <p>This is an example of template inheritance....</p>
-  
+  {% comment %}
+  Here we have used Template Filter... the format for template filter is {{ variable_name|filter }}
+  {% endcomment %}
+  <h3 class="display-3">Greetings {{ name|upper }}!!!</h3>
+  {% comment %}format {{ variable_name|filter:'value' }} {% endcomment %}
+  <p>You logged in for {{ number|visit_count }}</p>
+
 {% endblock %}
