@@ -21,12 +21,19 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
           </li>
-          <li class="nav-item btn-primary">
-            <a class="nav-link" href="{% url 'auth_app:register' %}">Register</a>
-          </li>
-          <li class="nav-item btn-success">
-            {% comment %} <a class="nav-link" href="{% url 'auth_app:login' %}">Login</a> {% endcomment %}
-          </li>
+          {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'auth_app:user_logout' %}">Logout</a>
+            </li>
+          {% else %}
+            <li class="nav-item ">
+              <a class="nav-link" href="{% url 'auth_app:user_login' %}">Login</a>
+              <li class="nav-item btn-primary">
+                <a class="nav-link" href="{% url 'auth_app:register' %}">Register</a>
+              </li>
+            </li>
+          {% endif %}
+
         </ul>
       </div>
     </nav>
@@ -36,6 +43,12 @@
       {% block body_block %}
         <!-- Anything outside this block will be extended!!!!!!! -->
       {% endblock %}
+    </div>
+
+    <div class="container">
+      {% if user.is_authenticated %}
+      <h2 class="display-4">Welcome {{user.username}} </h2>
+    {% endif %}
     </div>
 
     <footer>
