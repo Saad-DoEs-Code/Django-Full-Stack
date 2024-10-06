@@ -1,0 +1,10 @@
+{% extends 'basic_app/basic_app_base.html' %}
+
+{% block body_block %}
+  <h3 class="display-3">List of Schools</h3>
+  <ul>
+    {% for school in schools %}
+    <h4 class="display-4"><li><a href="{{school.id}}">{{ school.name }}</a></li></h4>
+    {% endfor %}
+  </ul>
+{% endblock %}
