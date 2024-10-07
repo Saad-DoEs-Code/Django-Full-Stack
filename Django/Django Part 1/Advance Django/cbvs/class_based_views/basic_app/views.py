@@ -1,6 +1,6 @@
-from typing import Any
 from django.shortcuts import render
-from django.views.generic import View, TemplateView, ListView, DetailView
+from django.views.generic import (View, TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView)
+from django.urls import reverse_lazy
 from basic_app.models import School, Student
 
 class SchoolListView(ListView):
@@ -17,8 +17,21 @@ class SchoolDetailView(DetailView):
     template_name = 'basic_app/school_detail.html'
 
 
+class SchoolCreateView(CreateView):
 
+    fields = ('name', 'principal', 'address')
+    model = School
+    template_name = "basic_app/school_create.html"
 
+class SchoolUpdateView(UpdateView):
+
+    fields = ('principal', 'address')
+    model = School
+    template_name = "basic_app/school_create.html"
+
+class SchoolDeleteView(DeleteView):
+    model = School
+    success_url = reverse_lazy('basic_app:list')
 
 
 
